@@ -1,1 +1,12 @@
+===========================
+Run backend
+===========================
+cd EditorBackEnd 
+npm install
+start mongodb service ("mongod" or "sudo mongod")
+node main.js
 
+===========================
+Run frontend
+===========================
+http-server -c-1
