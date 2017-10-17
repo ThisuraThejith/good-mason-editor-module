@@ -29,14 +29,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td id="username_td_user.username"><a href="">user.username</a></td>
-                                    <td id="name_td_user.username">user.name</td>
-                                    <td id="email_td_user.username">user.email</td>
+                                <tr ng-repeat = "editor in editors">
+                                    <td>{{ editor.Username }}</td>
+                                    <td>{{ editor.Name }}</td>
+                                    <td>{{ editor.Email}}</td>
                                     <td>
                                         <!--<button class="btn btn-xs btn-info" ng-click="editUser(user.username)"><i class="fa fa-pencil"></i>  Edit</button>-->
-                                        <button class="btn btn-xs btn-danger" ng-click="removeUser(user.username)"><i class="fa fa-close"></i>  Remove</button>
+                                        <button class="btn btn-xs btn-danger" ng-click="deleteEditor(editor.Username)"><i class="fa fa-close"></i>  Remove</button>
                                     </td>
+                                </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -83,7 +84,7 @@
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 <button ng-click="neglect()" class="btn btn-default">Cancel</button>
-                                <button ng-click="addUser()" class="btn btn-primary pull-right">Add Editor</button>
+                                <button ng-click="addEditor()" class="btn btn-primary pull-right">Add Editor</button>
                             </div>
                             <!-- /.box-footer -->
                         </form>

@@ -1,4 +1,3 @@
-//var app = angular.module("PharmacyModule",[]);
 
 app.controller("ContentController", function ($scope, $http) {
 
