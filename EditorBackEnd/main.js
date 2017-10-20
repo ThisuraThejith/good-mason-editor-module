@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost/goodmason_editor');
 //Database schemas
 var editors = mongoose.model('editors',{Username: String, Name: String, Email:String});
 var contents = mongoose.model('contents',{ID: String, User: String, Date: String, Title: String, Content: String, Status: String});
-
+var users = mongoose.model('users',{User: String, Date: String, Location: String, Specialty: String, Likes: Number, Dislikes: Number, Status: String})
 
 //server startup
 app.listen(8086, function (error) {
@@ -134,20 +134,51 @@ app.delete("/contents/:id",function (req,res) {
     });
 });
 
-//Get all stocks
-app.get("/stocks",function (req,res) {
-    console.log("[ROUTE CALLED][GET] /stocks");
-    stocks.find(function (error,stocks) {
+//Get all users
+app.get("/users",function (req,res) {
+    console.log("[ROUTE CALLED][GET] /users");
+    users.find(function (error,users) {
         if(error){
-            console.log("[ERROR] FETCHING STOCKS FROM DATABASE FAILED");
+            console.log("[ERROR] FETCHING USERS FROM DATABASE FAILED");
             res.end();
         }
-        console.log("[DB] FETCHING STOCKS FROM DATABASE SUCCESS");
-        res.json(stocks);
+        console.log("[DB] FETCHING USERS FROM DATABASE SUCCESS");
+        res.json(users);
     });
 });
 
+//Find users by status
+app.get("/users/status/:statusID",function (req,res) {
+    var status=req.params.statusID;
+    console.log("[ROUTE CALLED][GET] /users/" + status);
+    users.find({Status:status},function (error,users) {
+        if(error){
+            console.log("[ERROR] FETCHING SPECIFIC USERS FROM DATABASE FAILED");
+            res.end();
+        }
+        console.log("[DB] FETCHING SPECIFIC USERS FROM DATABASE SUCCESS");
+        res.json(users);
+    });
+});
 
+//Update users(Disable an user)
+app.put("/users/:username",function (req,res) {
+    var user = req.params.username;
+    console.log("[ROUTE CALLED][PUT] /users/" + user);
+    users.findOne({User:user}, function (error,users) {
+        if(error){
+            res.status(500);
+            res.end();
+        }
+        users.Status = req.body.Status;
+        users.save(function (error,users) {
+            if(error){
+                res.status(500).end();
+            }
+            res.json(users);
+        });
+    });
+});
 
 //Find requests by requestID
 app.get("/requests/:requestsId",function (req,res) {

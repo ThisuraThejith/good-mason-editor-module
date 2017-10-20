@@ -1,0 +1,32 @@
+--1)DB creation
+
+use goodmason_editor
+
+--2)Creating 'editors' collection
+
+db.createCollection("editors")
+
+--3)Inserting data into 'editors' collection
+
+db.editors.insert({"Username":"ttcp","Name":"Thisura Thejith","Email":"ttcphilips123@gmail.com"})
+db.editors.insert({"Username":"ttpc","Name":"Charles Philips","Email":"cphilips12345@gmail.com"})
+
+--4)Creating 'contents' collection
+
+db.createCollection("contents")
+
+--5)Inserting data into 'contents' collection
+
+db.contents.insert({"ID":"AP1","User":"ttcp","Date":"2017-01-02","Title":"House Construction","Content":"40 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP2","User":"ttpc","Date":"2017-01-03","Title":"Carpentry","Content":"40 Per SQFT","Status":"Approved"})
+db.contents.insert({"ID":"AP3","User":"chcp","Date":"2017-01-04","Title":"Masonry","Content":"40 Per SQFT","Status":"Rejected"})
+
+
+--6)Creating 'users' collection
+
+db.createCollection("users")
+
+--7)Inserting data into 'users' collection
+
+db.users.insert({"User":"sputt","Date":"2017-01-02","Location":"Battaramulla","Specialty":"Masonary","Likes":100,"Dislikes":1,"Status":"Pending"})
+
