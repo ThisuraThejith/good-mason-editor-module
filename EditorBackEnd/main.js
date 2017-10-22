@@ -99,7 +99,7 @@ app.get("/contents/status/:statusID",function (req,res) {
     });
 });
 
-//Update contents(Accept or Reject ad contents)
+//Update contents(Approve or Reject ad contents)
 app.put("/contents/:contentID",function (req,res) {
     var contID = req.params.contentID;
     console.log("[ROUTE CALLED][PUT] /contents/" + contID);
@@ -161,7 +161,7 @@ app.get("/users/status/:statusID",function (req,res) {
     });
 });
 
-//Update users(Disable an user)
+//Update users(Disable or Reject an user)
 app.put("/users/:username",function (req,res) {
     var user = req.params.username;
     console.log("[ROUTE CALLED][PUT] /users/" + user);
@@ -171,6 +171,27 @@ app.put("/users/:username",function (req,res) {
             res.end();
         }
         users.Status = req.body.Status;
+        users.save(function (error,users) {
+            if(error){
+                res.status(500).end();
+            }
+            res.json(users);
+        });
+    });
+});
+
+//Update user accounts(Approve user accounts)
+app.put("/accounts/:accountname",function (req,res) {
+    var account = req.params.accountname;
+    console.log("[ROUTE CALLED][PUT] /accounts/" + account);
+    users.findOne({User:account}, function (error,users) {
+        if(error){
+            res.status(500);
+            res.end();
+        }
+        users.Status = req.body.Status;
+        users.Likes = req.body.Likes;
+        users.Dislikes = req.body.Dislikes;
         users.save(function (error,users) {
             if(error){
                 res.status(500).end();
