@@ -1,7 +1,7 @@
 
 app.controller("UserController", function ($scope, $http) {
 
-    var status = "Pending";
+    var status = "Active";
     $scope.users = [];
 
     $http.get("http://localhost:8086/users/status/" +status).then(function (response) {
@@ -32,5 +32,7 @@ app.controller("UserController", function ($scope, $http) {
         });
 
     };
+
+
         
 });

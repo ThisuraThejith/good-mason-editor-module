@@ -27,7 +27,7 @@ app.config(function ($routeProvider, $locationProvider) {
             })
             .when("/pending_users", {
                 templateUrl: "views/PendingUsers.html",
-                controller: "UserController"
+                controller: "PendingUserController"
             })
             .when("/editors", {
                 templateUrl: "views/Editors.html",
