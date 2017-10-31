@@ -32,3 +32,16 @@ db.users.insert({"User":"sputt","Date":"2017-01-02","Location":"Battaramulla","S
 db.users.insert({"User":"bbcnn","Date":"2017-06-22","Location":"Galle","Specialty":"Tiling","Likes":10,"Dislikes":0,"Status":"Active"})
 db.users.insert({"User":"supuntt","Date":"2017-08-02","Location":"Narahenpita","Specialty":"Carpentry","Status":"Pending"})
 db.users.insert({"User":"jbcd","Date":"2017-10-02","Location":"Matara","Specialty":"Painting","Status":"Pending"})
+
+--8)Creating 'responses' collection
+
+db.createCollection("responses")
+
+--9)Inserting data into 'responses' collection
+
+db.responses.insert({"User":"supuntt","Date":"2017-01-03","Comment":"This website is really helpful","Status":"Under Inspection"})
+db.responses.insert({"User":"jbcd","Date":"2017-08-03","Comment":"This website saved my day","Status":"Under Inspection"})
+db.responses.insert({"User":"sputt","Date":"2017-07-07","Comment":"A really really fruitful website","Status":"Under Inspection"})
+db.responses.insert({"User":"bbcnn","Date":"2017-05-10","Comment":"The best job finding website","Status":"Under Inspection"})
+
+
