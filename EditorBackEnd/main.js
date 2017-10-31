@@ -20,6 +20,7 @@ mongoose.connect('mongodb://localhost/goodmason_editor');
 var editors = mongoose.model('editors',{Username: String, Name: String, Email:String});
 var contents = mongoose.model('contents',{ID: String, User: String, Date: String, Title: String, Content: String, Status: String});
 var users = mongoose.model('users',{User: String, Date: String, Location: String, Specialty: String, Likes: Number, Dislikes: Number, Status: String})
+var responses = mongoose.model('responses',{User : String, Date: String, Comment: String, Status: String});
 
 //server startup
 app.listen(8086, function (error) {
@@ -198,6 +199,55 @@ app.put("/accounts/:accountname",function (req,res) {
             }
             res.json(users);
         });
+    });
+});
+
+//Find responses by status
+app.get("/responses/status/:statusID",function (req,res) {
+    var status=req.params.statusID;
+    console.log("[ROUTE CALLED][GET] /responses/" + status);
+    responses.find({Status:status},function (error,responses) {
+        if(error){
+            console.log("[ERROR] FETCHING SPECIFIC RESPONSES FROM DATABASE FAILED");
+            res.end();
+        }
+        console.log("[DB] FETCHING SPECIFIC RESPONSES FROM DATABASE SUCCESS");
+        res.json(responses);
+    });
+});
+
+//Update responses(Add as success story)
+app.put("/responses/:successstory",function (req,res) {
+    var response = req.params.successstory;
+    console.log("[ROUTE CALLED][PUT] /responses/" + response);
+    responses.findOne({User:response}, function (error,responses) {
+        if(error){
+            res.status(500);
+            res.end();
+        }
+        responses.Status = req.body.Status;
+        responses.save(function (error,responses) {
+            if(error){
+                res.status(500).end();
+            }
+            res.json(responses);
+        });
+    });
+});
+
+//Delete an user query/response
+app.delete("/responses/:id",function (req,res) {
+
+    var delId = req.params.id;
+
+    console.log("[ROUTE CALLED][DELETE] /responses/" + delId);
+    responses.deleteOne({User:delId},function (error,responses) {
+        if(error){
+            console.log("[ERROR] DELETING ONE RESPONSE FAILED");
+            res.end();
+        }
+        console.log("[DB] DELETING ONE RESPONSE SUCCESS");
+        res.json(contents);
     });
 });
 
