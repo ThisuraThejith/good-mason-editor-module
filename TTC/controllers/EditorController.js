@@ -22,7 +22,7 @@ app.controller("EditorController",function ($scope,$http){
             alert("Editor Deleted Successfully!");
             refreshEditors();
         }, function (response) {
-            alert("Editor Deleting Failed !")
+            alert("Editor Deleting Failed !");
         });
 
     };
