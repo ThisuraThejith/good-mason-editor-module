@@ -19,7 +19,7 @@ app.config(function ($routeProvider, $locationProvider) {
             })
             .when("/all_content", {
                 templateUrl: "views/AllContent.html",
-                controller: "ContentController"
+                controller: "AllContentController"
             })
             .when("/all_users", {
                 templateUrl: "views/AllUsers.html",

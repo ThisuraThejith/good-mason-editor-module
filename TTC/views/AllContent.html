@@ -27,19 +27,21 @@
                             <th>Date</th>
                             <th>Title</th>
                             <th>Content</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="#stock/{{drug.id}}">SKJD387483</td>
-                            <td>supuntt</td>
-                            <td>2017-08-09</td>
-                            <td>House Construction</td>
-                            <td>40 Per SQFT</td>
+                        <tr ng-repeat = "content in contents">
+                            <td>{{content.ID}}</td>
+                            <td>{{content.User}}</td>
+                            <td>{{content.Date}}</td>
+                            <td>{{content.Title}}</td>
+                            <td>{{content.Content}}</td>
+                            <td>{{content.Status}}</td>
                             <td>
                                 <a href="" class="btn btn-xs btn-success"><i class="fa fa-plus"></i>  Promote</a>
-                                <button ng-click="removeStock(drug.id)" class="btn btn-xs btn-danger"><i class="fa fa-close"></i>  Delete</button>
+                                <button ng-click="deleteContent(content.ID)" class="btn btn-xs btn-danger"><i class="fa fa-close"></i>  Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -50,6 +52,7 @@
                             <th>Date</th>
                             <th>Title</th>
                             <th>Content</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>
@@ -112,7 +115,7 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button ng-click="neglect()" class="btn btn-default">Cancel</button>
-                        <button ng-click="addUser()" class="btn btn-primary pull-right">Add Editor</button>
+                        <button ng-click="addUser()" class="btn btn-primary pull-right">Add Payment</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>

@@ -51,5 +51,4 @@ app.controller("ContentController", function ($scope, $http) {
 
     };
 
-
 });
