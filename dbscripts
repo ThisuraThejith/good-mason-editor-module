@@ -10,6 +10,14 @@ db.createCollection("editors")
 
 db.editors.insert({"Username":"ttcp","Name":"Thisura Thejith","Email":"ttcphilips123@gmail.com"})
 db.editors.insert({"Username":"ttpc","Name":"Charles Philips","Email":"cphilips12345@gmail.com"})
+db.editors.insert({"Username":"chcp","Name":"Chamara Philips","Email":"chcphilips.uom@gmail.com"})
+db.editors.insert({"Username":"bcp","Name":"Basil Philips","Email":"bcphilips@gmail.com"})
+db.editors.insert({"Username":"ltm","Name":"Lanil Marasinghe","Email":"laniltee@gmail.com"})
+db.editors.insert({"Username":"hnsw","Name":"Sampath Withana","Email":"hnsampathwith@gmail.com"})
+db.editors.insert({"Username":"hjlk","Name":"Hasitha Jayarathne","Email":"hjayarathne12345@gmail.com"})
+db.editors.insert({"Username":"knhm","Name":"Kansajith Hemanga","Email":"kansahema@gmail.com"})
+db.editors.insert({"Username":"mds8","Name":"Madusitha Madawa","Email":"madaaa12345@gmail.com"})
+db.editors.insert({"Username":"jsen","Name":"Jay Sean","Email":"jays5@gmail.com"})
 
 --4)Creating 'contents' collection
 
@@ -17,10 +25,16 @@ db.createCollection("contents")
 
 --5)Inserting data into 'contents' collection
 
-db.contents.insert({"ID":"AP1","User":"ttcp","Date":"2017-01-02","Title":"House Construction","Content":"40 Per SQFT","Status":"Pending"})
-db.contents.insert({"ID":"AP2","User":"ttpc","Date":"2017-01-03","Title":"Carpentry","Content":"40 Per SQFT","Status":"Approved"})
-db.contents.insert({"ID":"AP3","User":"chcp","Date":"2017-01-04","Title":"Masonry","Content":"40 Per SQFT","Status":"Rejected"})
-
+db.contents.insert({"ID":"AP1","User":"sputt","Date":"2017-01-02","Title":"House Construction","Content":"40 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP2","User":"supuntt","Date":"2017-01-03","Title":"Carpentry","Content":"20 Per SQFT","Status":"Approved"})
+db.contents.insert({"ID":"AP3","User":"jbcn","Date":"2017-01-04","Title":"Masonry","Content":"30 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP4","User":"bbcnn","Date":"2017-05-04","Title":"Tiling","Content":"10 Per SQFT","Status":"Approved"})
+db.contents.insert({"ID":"AP5","User":"kkhm","Date":"2017-01-10","Title":"Painting","Content":"40 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP6","User":"hjlm","Date":"2017-10-20","Title":"Masonry","Content":"40 Per SQFT","Status":"Approved"})
+db.contents.insert({"ID":"AP7","User":"mhbhj","Date":"2017-01-04","Title":"Decorating","Content":"70 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP8","User":"ppjh","Date":"2017-08-04","Title":"Masonry","Content":"40 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP9","User":"chjk","Date":"2017-05-25","Title":"Tiling","Content":"10 Per SQFT","Status":"Pending"})
+db.contents.insert({"ID":"AP10","User":"swes","Date":"2017-07-07","Title":"Painting","Content":"40 Per SQFT","Status":"Pending"})
 
 --6)Creating 'users' collection
 
