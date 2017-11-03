@@ -21,6 +21,7 @@ var editors = mongoose.model('editors',{Username: String, Name: String, Email:St
 var contents = mongoose.model('contents',{ID: String, User: String, Date: String, Title: String, Content: String, Status: String});
 var users = mongoose.model('users',{User: String, Date: String, Location: String, Specialty: String, Likes: Number, Dislikes: Number, Status: String})
 var responses = mongoose.model('responses',{User : String, Date: String, Comment: String, Status: String});
+var payments = mongoose.model('payments',{ContentID : String, Method: String, Date: String, Amount: Number, ReferenceNo: String});
 
 //server startup
 app.listen(8086, function (error) {
@@ -251,54 +252,18 @@ app.delete("/responses/:id",function (req,res) {
     });
 });
 
-//Find requests by requestID
-app.get("/requests/:requestsId",function (req,res) {
-    var reqId=req.params.requestsId;
-    console.log("[ROUTE CALLED][GET] /requests/" + reqId);
-    requests.find({requestID:reqId},function (error,requests) {
+//Add a payment
+app.post("/payments",function (req,res) {
+    console.log("[ROUTE CALLED][POST] /payments");
+
+    var newPayment = new payments(req.body);
+
+    newPayment.save(function (error,newPayment) {
         if(error){
-            console.log("[ERROR] FETCHING SPECIFIC REQUESTS FROM DATABASE FAILED");
+            console.log("[ERROR] ADDING A PAYMENT TO DATABASE FAILED");
             res.end();
         }
-        console.log("[DB] FETCHING SPECIFIC REQUESTS FROM DATABASE SUCCESS");
-        res.json(requests);
+        console.log("[DB] ADDING A PAYMENT TO DATABASE SUCCESS");
+        res.json(newPayment);
     });
 });
-
-//Find stocks by userID
-app.get("/stocks/:userId",function (req,res) {
-    var reqId=req.params.userId;
-    console.log("[ROUTE CALLED][GET] /stocks/" + reqId);
-    stocks.find({userID:reqId},function (error,stocks) {
-        if(error){
-            console.log("[ERROR] FETCHING SPECIFIC STOCKS FROM DATABASE FAILED");
-            res.end();
-        }
-        console.log("[DB] FETCHING SPECIFIC STOCKS FROM DATABASE SUCCESS");
-        res.json(stocks);
-    });
-});
-
-
-
-//Add new request
-app.post("/requests",function (req,res) {
-    console.log("[ROUTE CALLED][POST] /requests");
-
-    var newRequest = new requests(req.body);
-
-    newRequest.save(function (error,newRequest) {
-        if(error){
-            console.log("[ERROR] ADDING A NEW REQUEST TO DATABASE FAILED");
-            res.end();
-        }
-        console.log("[DB] ADDING A NEW REQUEST TO DATABASE SUCCESS");
-        res.json(newRequest);
-    });
-});
-
-
-
-
-
-
