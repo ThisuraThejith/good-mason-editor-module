@@ -17,7 +17,17 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Content Table</h3>
+            <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" ng-model="table_search" class="form-control pull-right" placeholder="Search">
 
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -32,7 +42,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat = "content in contents">
+                        <tr ng-repeat = "content in contents | filter: table_search">
                             <td>{{content.ID}}</td>
                             <td>{{content.User}}</td>
                             <td>{{content.Date}}</td>
@@ -40,7 +50,7 @@
                             <td>{{content.Content}}</td>
                             <td>{{content.Status}}</td>
                             <td>
-                                <a href="" class="btn btn-xs btn-success"><i class="fa fa-plus"></i>  Promote</a>
+                                <a href="" ng-click="promoteContent(content.ID)" class="btn btn-xs btn-success"><i class="fa fa-plus"></i>  Promote</a>
                                 <button ng-click="deleteContent(content.ID)" class="btn btn-xs btn-danger"><i class="fa fa-close"></i>  Delete</button>
                             </td>
                         </tr>
@@ -82,10 +92,10 @@
                 <form >
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="full_name">Payment Method</label>
+                            <label for="payment_method">Payment Method</label>
                             <div>
                                 <!--<input type="text" class="form-control" requried="requried" id="full_name" ng-model="" placeholder="Name">-->
-                                <select class="form-control" ng-model="paymentMethodModel">
+                                <select class="form-control" ng-model="payment_method" id="payment_method">
                                     <option value="cash">Cash</option>
                                     <option value="debit">Bank Debit</option>
                                     <option value="credit_card">Credit Card</option>
@@ -94,28 +104,28 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="full_name">Payment Date</label>
+                            <label for="payment_date">Payment Date</label>
                             <div>
-                                <input type="date" class="form-control" requried="requried" id="full_name" ng-model="full_name" placeholder="Name">
+                                <input type="date" class="form-control" requried="requried" id="payment_date" ng-model="payment_date" placeholder="Name">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="username" class="control-label">Full Payment Amount</label>
+                            <label for="payment_amount" class="control-label">Full Payment Amount</label>
                             <div class="">
-                                <input type="text" class="form-control" requried="requried" id="username" ng-model="username" placeholder="Name">
+                                <input type="text" class="form-control" requried="requried" id="payment_amount" ng-model="payment_amount" placeholder="Name">
                             </div>
                         </div>
                         <div class="form-group" ng-if="paymentMethodModel != 'cash'">
-                            <label for="email" class="control-label">Reference No.</label>
+                            <label for="reference_no" class="control-label">Reference No.</label>
                             <div class="">
-                                <input type="email" class="form-control" requried="requried" id="email" ng-model="email"  placeholder="Name">
+                                <input type="text" class="form-control" requried="requried" id="reference_no" ng-model="reference_no"  placeholder="Name">
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button ng-click="neglect()" class="btn btn-default">Cancel</button>
-                        <button ng-click="addUser()" class="btn btn-primary pull-right">Add Payment</button>
+                        <button ng-click="confirmPayment()" class="btn btn-primary pull-right">Add Payment</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>
