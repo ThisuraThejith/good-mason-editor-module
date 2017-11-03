@@ -15,16 +15,16 @@ app.controller("EditorController",function ($scope,$http){
     }
 
     $scope.deleteEditor = function (Username) {
+        if (confirm("Are you sure you want to remove this editor?")) {
+            var delEditor = Username;
 
-        var delEditor = Username;
-
-        $http.delete("http://localhost:8086/editors/" + delEditor).then(function (response) {
-            alert("Editor Deleted Successfully!");
-            refreshEditors();
-        }, function (response) {
-            alert("Editor Deleting Failed !");
-        });
-
+            $http.delete("http://localhost:8086/editors/" + delEditor).then(function (response) {
+                alert("Editor Removed Successfully!");
+                refreshEditors();
+            }, function (response) {
+                alert("Editor Removing Failed !");
+            });
+        }
     };
 
     $scope.addEditor = function () {
@@ -38,12 +38,19 @@ app.controller("EditorController",function ($scope,$http){
             $http.post("http://localhost:8086/editors", newEditor).then(function (response) {
                 alert("New Editor Added Successfully!");
                 refreshEditors();
+                $scope.resetEditor();
             }, function (response) {
                 alert("New Editor Adding Failed !")
             });
         } else {
             alert("Inputs are not valid !");
         }
+    };
+
+    $scope.resetEditor = function(){
+        $scope.full_name = '';
+        $scope.username = '';
+        $scope.email = '';
     };
 
 });

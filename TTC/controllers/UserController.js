@@ -16,21 +16,22 @@ app.controller("UserController", function ($scope, $http) {
 
     //Disable an user
     $scope.disableUser = function (Username) {
-        var username = Username;
-        var newStatus = {
-            Status:"Disabled"
+        if (confirm("Are you sure you want to disable this user?")) {
+            var username = Username;
+            var newStatus = {
+                Status: "Disabled"
 
-        };
+            };
 
 
-        $http.put("http://localhost:8086/users/" + username,newStatus).then(function (response) {
+            $http.put("http://localhost:8086/users/" + username, newStatus).then(function (response) {
 
-            alert("User has been disabled successfully!");
-            refreshUsers();
-        }, function (response) {
-            alert("Disabling User Failed!");
-        });
-
+                alert("User has been disabled successfully!");
+                refreshUsers();
+            }, function (response) {
+                alert("Disabling User Failed!");
+            });
+        }
     };
 
 
