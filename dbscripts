@@ -59,3 +59,11 @@ db.responses.insert({"User":"sputt","Date":"2017-07-07","Comment":"A really real
 db.responses.insert({"User":"bbcnn","Date":"2017-05-10","Comment":"The best job finding website","Status":"Under Inspection"})
 
 
+--10)Creating 'payments' collection
+
+db.createCollection("payments")
+
+--11)Inserting data into 'payments' collection
+
+db.payments.insert({"ContentID":"AP100","Method":"Bank Debit","Date":"2017-01-03","Amount":245,"ReferenceNo":"dsds323232"})
+
