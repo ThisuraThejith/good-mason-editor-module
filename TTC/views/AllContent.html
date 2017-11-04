@@ -83,7 +83,7 @@
 <section class="content">
 
     <!-- Default box -->
-    <div class="box">
+    <div class="box" ng-show="content_id != ''">
         <div class="box-header with-border">
             <h3 class="box-title">Payment Form</h3>
 
@@ -115,7 +115,7 @@
                                 <input type="text" class="form-control" requried="requried" id="payment_amount" ng-model="payment_amount" placeholder="Name">
                             </div>
                         </div>
-                        <div class="form-group" ng-if="paymentMethodModel != 'cash'">
+                        <div class="form-group" ng-show="payment_method != 'cash'">
                             <label for="reference_no" class="control-label">Reference No.</label>
                             <div class="">
                                 <input type="text" class="form-control" requried="requried" id="reference_no" ng-model="reference_no"  placeholder="Name">
@@ -124,7 +124,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <button ng-click="neglect()" class="btn btn-default">Cancel</button>
+                        <button ng-click="resetPayment()" class="btn btn-default">Cancel</button>
                         <button ng-click="confirmPayment()" class="btn btn-primary pull-right">Add Payment</button>
                     </div>
                     <!-- /.box-footer -->
