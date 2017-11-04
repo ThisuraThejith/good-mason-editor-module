@@ -248,7 +248,7 @@ app.delete("/responses/:id",function (req,res) {
             res.end();
         }
         console.log("[DB] DELETING ONE RESPONSE SUCCESS");
-        res.json(contents);
+        res.json(responses);
     });
 });
 
