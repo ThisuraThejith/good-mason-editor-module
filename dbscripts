@@ -44,8 +44,14 @@ db.createCollection("users")
 
 db.users.insert({"User":"sputt","Date":"2017-01-02","Location":"Battaramulla","Specialty":"Masonary","Likes":100,"Dislikes":1,"Status":"Active"})
 db.users.insert({"User":"bbcnn","Date":"2017-06-22","Location":"Galle","Specialty":"Tiling","Likes":10,"Dislikes":0,"Status":"Active"})
-db.users.insert({"User":"supuntt","Date":"2017-08-02","Location":"Narahenpita","Specialty":"Carpentry","Status":"Pending"})
+db.users.insert({"User":"iron123","Date":"2017-10-25","Location":"Ambalangoda","Specialty":"Painting","Likes":25,"Dislikes":0,"Status":"Active"})
+db.users.insert({"User":"masn","Date":"2017-09-09","Location":"Hambanthota","Specialty":"Carpentry","Likes":45,"Dislikes":1,"Status":"Active"})
+db.users.insert({"User":"randl","Date":"2017-06-06","Location":"Kaluthara","Specialty":"Decorating","Likes":50,"Dislikes":0,"Status":"Active"})
+db.users.insert({"User":"supuntt","Date":"2017-08-02",Location":"Narahenpita","Specialty":"Carpentry","Status":"Pending"})
 db.users.insert({"User":"jbcd","Date":"2017-10-02","Location":"Matara","Specialty":"Painting","Status":"Pending"})
+db.users.insert({"User":"sampa","Date":"2017-05-05","Location":"Seeduwa","Specialty":"Masonary","Status":"Pending"})
+db.users.insert({"User":"hasi123","Date":"2017-08-12","Location":"Malabe","Specialty":"Tiling","Status":"Pending"})
+db.users.insert({"User":"mov4","Date":"2017-04-09","Location":"Gampaha","Specialty":"Carpentry","Status":"Pending"})
 
 --8)Creating 'responses' collection
 
@@ -57,6 +63,7 @@ db.responses.insert({"User":"supuntt","Date":"2017-01-03","Comment":"This websit
 db.responses.insert({"User":"jbcd","Date":"2017-08-03","Comment":"This website saved my day","Status":"Under Inspection"})
 db.responses.insert({"User":"sputt","Date":"2017-07-07","Comment":"A really really fruitful website","Status":"Under Inspection"})
 db.responses.insert({"User":"bbcnn","Date":"2017-05-10","Comment":"The best job finding website","Status":"Under Inspection"})
+db.responses.insert({"User":"masn","Date":"2017-10-15","Comment":"This is the best online helper that a worker can get","Status":"Under Inspection"})
 
 
 --10)Creating 'payments' collection
