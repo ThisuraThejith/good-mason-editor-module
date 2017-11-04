@@ -1,7 +1,13 @@
 var expect = require('chai').expect;
 var request = require('request');
 
-const BASE_URL = 'http://localhost:8086/'
+const BASE_URL = 'http://localhost:8086/';
+
+const MOCK_EDITOR = {
+    "Username": "dddd",
+    "Name": "Sampath Sandaruwan",
+    "Email": "sampa123@yahoo.com"
+};
 
 describe('Backend API Testing', function () {
     // Define Editors
@@ -11,6 +17,20 @@ describe('Backend API Testing', function () {
                 expect(response.statusCode).to.equal(200);
                 done();
             });
+        });
+        it('adds a new editor when  post /editors', function (done) {
+            request.post(
+                {
+                    url: BASE_URL + 'editors',
+                    body: MOCK_EDITOR,
+                    json: true
+                },
+                function(error,response,body){
+                    expect(response.statusCode).to.equal(200);
+                    done();
+                }
+
+            );
         });
         it('Returns an array of editor objects', function (done) {
             request(BASE_URL + 'editors', function (error, response, body) {
